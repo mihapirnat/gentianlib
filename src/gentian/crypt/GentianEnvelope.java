@@ -153,7 +153,7 @@ public final class GentianEnvelope {
     }
 
     private static void wipe(final byte[] data) {
-        if (AUTOWIPE) {
+        /*if (AUTOWIPE) {
         new Thread() {
 
             @Override
@@ -172,7 +172,7 @@ public final class GentianEnvelope {
                 }
             }
         }.start();
-        }
+        }*/
 //        System.out.print("Envelope Temp data wiped:"+data.length);
     }
 }
