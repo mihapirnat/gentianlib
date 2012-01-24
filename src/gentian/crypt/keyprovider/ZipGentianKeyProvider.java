@@ -406,32 +406,34 @@ public class ZipGentianKeyProvider extends AbstractGentianKeyProvider {
 
         @Override
         public void wipe() {
-            SecureRandom r = new SecureRandom();
-            if (read != null) {
-                byte[] wipe = new byte[read.length];
-                for (int n = 1; n < 10; n++) {
+            try {
+                SecureRandom r = new SecureRandom();
+                if (read != null) {
+                    byte[] wipe = new byte[read.length];
+                    for (int n = 1; n < 10; n++) {
 
 
-                    r.nextBytes(wipe);
-                    for (int i = 0; i < read.length; i++) {
-                        read[i] = wipe[i];
-                    }
+                        r.nextBytes(wipe);
+                        for (int i = 0; i < read.length; i++) {
+                            read[i] = wipe[i];
+                        }
 
-                }
-            }
-            if (raw != null) {
-                byte[] wipe = new byte[raw.length];
-                for (int n = 1; n < 10; n++) {
-
-                    r.nextBytes(wipe);
-
-                    for (int i = 0; i < raw.length; i++) {
-
-                        raw[i] = wipe[i];
                     }
                 }
-            }
+                if (raw != null) {
+                    byte[] wipe = new byte[raw.length];
+                    for (int n = 1; n < 10; n++) {
 
+                        r.nextBytes(wipe);
+
+                        for (int i = 0; i < raw.length; i++) {
+
+                            raw[i] = wipe[i];
+                        }
+                    }
+                }
+            } catch (Exception e) {
+            }
 
         }
     }
